@@ -2,25 +2,25 @@
 
 A dynamo (type of generator) for charging my phone, which is chronically dead.
 
+## CAD
+
+version 2:
+
+<img src="assets/gears-3D.png" width="500px">
 
 ## how does it work?
 
-The principle of a dynamo is that, since the electromagnetic field causes a magnet to move positions, moving positions also changes the electromagnetic field. So, as a voltage spins a motor, spinning the motor also creates a voltage. This is the principle of many generators!
+The principle of a dynamo is based on backdriving a motor. There are lots of little copper wire windings inside of a motor, and running a current through there creates an electromagnetic field. That causes the magnets in the motor to want to spin, essentially.
 
-To get 5V out of it, we have to crank it really fast, through a gear train or some other gear-ratio-like system. 
-I'm using a 130 motor, so we’d have to get the motor spinning at about 8300 RPM / 60 = 138 RPS. I thought about using a gear train to backdrive it but there seems to be too much friction, so I’m using a wheel and rubber band system.
+This also works the other way: **spinning the motor shaft also changes the electromagnetic field**. This is the principle of many generators.
 
-<img src="assets/CAD1.png" width="500px">
+To get 5V out of it, we have to crank it **really fast**, through a gear train or some other gear-ratio-like system. I'm using a 130 motor, so we’d have to get the motor spinning at about 15000 RPM / 60 = 250 RPS.
 
+## wiring
 
-However the voltage generated will be positive or negative, and anywhere between neg/pos 2-9V. 
+The voltage generated will be positive or negative, and anywhere between neg/pos 2-9V. 
+The circuit first converts it to conventional "positive", then steps it down to a steady 5V, with extra power stored in the battery.
 
-To mitigate this, the flow goes like this:
+When the generator isn't providing at least 5V, the 5V output is taken from the stored battery power.
 
-- a full bridge rectifier with schottky diodes (low forward current) to convert it to "positive"
-- positive goes into step-down UPS module, which charges battery, then also separately goes OUT as a regulated 5V
-- 5V goes to USB-C breakout board.
-
-| Wiring |
-| :---: |
-| <img src="assets/scanned.png" width="300px"> |
+<img src="assets/scanned.png" width="300px">
